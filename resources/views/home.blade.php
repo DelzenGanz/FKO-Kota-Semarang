@@ -7,48 +7,54 @@
 {{-- Main content --}}
 @section('content')
 
-{{-- Hero Section --}}
-<section id="hero" class="hero-section bg-light py-5">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-7 mb-4 mb-lg-0">
-                <h1 class="display-4 fw-bold text-primary mb-4">
-                    Forum Komunikasi OSIS<br>Kota Semarang
-                </h1>
-                <p class="lead text-muted mb-4">
-                    Wadah komunikasi dan koordinasi pengurus OSIS se-Kota Semarang dalam 
-                    mengembangkan organisasi siswa yang berkualitas, berprestasi, dan berkarakter.
-                </p>
-                <div class="d-flex gap-3 flex-wrap">
-                    <a href="#programs" class="btn btn-primary btn-lg px-4 py-3">
-                        <i class="bi bi-calendar-event me-2"></i>
-                        Lihat Program
-                    </a>
-                    <a href="#contact" class="btn btn-outline-primary btn-lg px-4 py-3">
-                        <i class="bi bi-envelope me-2"></i>
-                        Hubungi Kami
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                {{-- Hero Image Placeholder --}}
-                {{-- Ganti dengan foto kegiatan FKO: upload ke /public/images/hero.jpg --}}
-                <div class="hero-image-placeholder bg-beige rounded-4 shadow-lg p-5 text-center position-relative overflow-hidden">
-                    {{-- Background Pattern --}}
-                    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10">
-                        <div class="d-flex flex-wrap gap-3 p-3">
-                            <i class="bi bi-people text-primary fs-1"></i>
-                            <i class="bi bi-trophy text-primary fs-1"></i>
-                            <i class="bi bi-book text-primary fs-1"></i>
-                            <i class="bi bi-lightbulb text-primary fs-1"></i>
-                            <i class="bi bi-megaphone text-primary fs-1"></i>
-                            <i class="bi bi-award text-primary fs-1"></i>
-                        </div>
+{{-- Modern Hero Section with Background Image Overlay --}}
+<section id="hero" class="hero-modern">
+    {{-- Background Image --}}
+    <div class="hero-bg" style="background-image: url('{{ asset('images/hero-bg.jpg') }}');"></div>
+    
+    {{-- Dark Overlay --}}
+    <div class="hero-overlay"></div>
+    
+    {{-- Content --}}
+    <div class="hero-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    {{-- Badge --}}
+                    <div class="hero-badge mb-4" data-aos="fade-down">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Forum Komunikasi OSIS Kota Semarang
                     </div>
-                    {{-- Main Icon --}}
-                    <div class="position-relative z-1">
-                        <i class="bi bi-people-fill text-primary" style="font-size: 12rem; opacity: 0.6;"></i>
-                        <p class="text-muted small mt-3 mb-0">📸 Upload foto kegiatan FKO di sini</p>
+                    
+                    {{-- Main Heading --}}
+                    <h1 class="hero-title mb-4" data-aos="fade-up" data-aos-delay="100">
+                        Membangun Generasi<br>
+                        <span class="hero-title-highlight">Pemimpin Berkarakter</span>
+                    </h1>
+                    
+                    {{-- Description --}}
+                    <p class="hero-description mb-5" data-aos="fade-up" data-aos-delay="200">
+                        Wadah komunikasi dan koordinasi pengurus OSIS se-Kota Semarang dalam 
+                        mengembangkan kepemimpinan, prestasi, dan karakter siswa yang unggul.
+                    </p>
+                    
+                    {{-- CTA Buttons --}}
+                    <div class="hero-cta d-flex gap-3 justify-content-center flex-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <a href="#programs" class="btn btn-hero-primary">
+                            <span>Jelajahi Program</span>
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-hero-secondary">
+                            <i class="bi bi-envelope me-2"></i>
+                            <span>Hubungi Kami</span>
+                        </a>
+                    </div>
+                    
+                    {{-- Scroll Indicator --}}
+                    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#about" class="scroll-link">
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
                     </div>
                 </div>
             </div>

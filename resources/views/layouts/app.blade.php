@@ -15,6 +15,11 @@
     {{-- Bootstrap 5 CSS via CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
+    {{-- Google Fonts - Modern Typography --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
@@ -25,52 +30,58 @@
     @yield('styles')
 </head>
 <body>
-    {{-- Sticky Navigation Bar --}}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm" id="mainNavbar">
+    {{-- Modern Transparent Navigation Bar --}}
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top" id="mainNavbar">
         <div class="container">
-            {{-- Brand/Logo --}}
-            {{--
-                CARA GANTI LOGO:
-                1. Simpan logo FKO Anda dengan nama 'logo.png' 
-                2. Upload ke folder: /public/images/logo.png
-                3. Logo akan otomatis muncul di navbar
-                
-                Format yang disarankan:
-                - PNG dengan background transparan
-                - Ukuran: 400x400px atau lebih
-                - Aspect ratio: 1:1 (persegi)
-            --}}
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ route('home') }}">
+            {{-- Brand/Logo with Modern Typography --}}
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.png') }}" 
                      alt="Logo FKO Semarang" 
-                     class="navbar-logo me-2">
-                <span>FKO Semarang</span>
+                     class="navbar-logo me-3">
+                <div class="brand-text">
+                    <span class="brand-main">FKO Semarang</span>
+                    <span class="brand-subtitle d-none d-lg-block">Forum Komunikasi OSIS</span>
+                </div>
             </a>
-
             
             {{-- Mobile Toggle Button --}}
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            {{-- Navigation Links --}}
+            {{-- Navigation Links with Icons --}}
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">Beranda</a>
+                        <a class="nav-link" href="#hero">
+                            <i class="bi bi-house-door me-1"></i>
+                            <span>Beranda</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Tentang</a>
+                        <a class="nav-link" href="#about">
+                            <i class="bi bi-info-circle me-1"></i>
+                            <span>Tentang</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#programs">Program</a>
+                        <a class="nav-link" href="#programs">
+                            <i class="bi bi-calendar-event me-1"></i>
+                            <span>Program</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">Berita</a>
+                        <a class="nav-link" href="#news">
+                            <i class="bi bi-newspaper me-1"></i>
+                            <span>Berita</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
+                        <a class="nav-link nav-link-cta" href="#contact">
+                            <i class="bi bi-envelope me-1"></i>
+                            <span>Kontak</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -198,6 +209,30 @@
             // Add active class to navbar links on scroll
             window.addEventListener('scroll', function() {
                 let scrollPosition = window.scrollY + 100;
+                
+                // Add scrolled class to navbar for transparency effect
+                const navbar = document.getElementById('mainNavbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Control scroll indicator visibility
+                const scrollIndicator = document.querySelector('.scroll-indicator');
+                const heroSection = document.getElementById('hero');
+                if (scrollIndicator && heroSection) {
+                    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                    
+                    // Show indicator only when in hero section
+                    if (window.scrollY < heroBottom - 200) {
+                        scrollIndicator.style.opacity = '1';
+                        scrollIndicator.style.visibility = 'visible';
+                    } else {
+                        scrollIndicator.style.opacity = '0';
+                        scrollIndicator.style.visibility = 'hidden';
+                    }
+                }
                 
                 document.querySelectorAll('section[id]').forEach(section => {
                     const sectionTop = section.offsetTop;
