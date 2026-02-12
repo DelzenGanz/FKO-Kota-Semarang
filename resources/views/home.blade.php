@@ -63,7 +63,7 @@
 </section>
 
 {{-- About Section --}}
-<section id="about" class="py-5 bg-white">
+<section id="about" class="py-5 bg-white glass-bg">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -78,7 +78,7 @@
                 <div class="row g-4">
                     {{-- Vision Card --}}
                     <div class="col-md-6">
-                        <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="card glass-card border-0 shadow-sm h-100 hover-lift">
                             <div class="card-body p-4">
                                 <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
                                      style="width: 60px; height: 60px;">
@@ -95,7 +95,7 @@
                     
                     {{-- Mission Card --}}
                     <div class="col-md-6">
-                        <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="card glass-card border-0 shadow-sm h-100 hover-lift">
                             <div class="card-body p-4">
                                 <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
                                      style="width: 60px; height: 60px;">
@@ -118,7 +118,7 @@
 </section>
 
 {{-- Programs & Activities Section --}}
-<section id="programs" class="py-5 bg-light">
+<section id="programs" class="py-5 bg-light glass-bg">
     <div class="container py-5">
         <div class="text-center mb-5">
             <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
@@ -134,7 +134,7 @@
         <div class="row g-4">
             @foreach($programs as $index => $program)
             <div class="col-lg-3 col-md-6">
-                <div class="card border-0 shadow-sm h-100 hover-lift text-center">
+                <div class="card glass-card border-0 shadow-sm h-100 hover-lift text-center">
                     <div class="card-body p-4">
                         <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
                              style="width: 80px; height: 80px;">
@@ -151,7 +151,7 @@
 </section>
 
 {{-- Latest News Section --}}
-<section id="news" class="py-5 bg-white">
+<section id="news" class="py-5 bg-white glass-bg">
     <div class="container py-5">
         <div class="text-center mb-5">
             <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
@@ -167,7 +167,7 @@
         <div class="row g-4">
             @foreach($news as $article)
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100 hover-lift overflow-hidden">
+                <div class="card glass-card border-0 shadow-sm h-100 hover-lift overflow-hidden">
                     <div class="row g-0">
                         <div class="col-md-5">
                             <div class="news-image-wrapper h-100 bg-beige d-flex align-items-center justify-content-center">
@@ -205,7 +205,7 @@
 </section>
 
 {{-- Contact Section --}}
-<section id="contact" class="py-5 bg-beige">
+<section id="contact" class="py-5 bg-beige glass-bg">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -220,7 +220,7 @@
                     </p>
                 </div>
                 
-                <div class="card border-0 shadow-lg">
+                <div class="card glass-card border-0 shadow-lg">
                     <div class="card-body p-5">
                         <div class="row g-4">
                             {{-- Address Info --}}
