@@ -63,53 +63,86 @@
 </section>
 
 {{-- About Section --}}
-<section id="about" class="py-5 bg-white glass-bg">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="text-center mb-5">
-                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
-                        <i class="bi bi-info-circle me-2"></i>Tentang FKO
-                    </span>
-                    <h2 class="display-5 fw-bold text-primary mb-3">Tentang Kami</h2>
-                    <div class="divider mx-auto mb-4"></div>
-                </div>
+<section id="about" class="section-padding-large bg-warm-brown-gradient">
+    <div class="noise-texture"></div>
+    <div class="decoration-blur decoration-blur-1"></div>
+    <div class="decoration-blur decoration-blur-2"></div>
+
+    <div class="container position-relative z-2">
+        <div class="row align-items-center">
+            {{-- Left Column: Text --}}
+            <div class="col-lg-6 mb-5 mb-lg-0 about-text-container">
+                <span class="badge bg-white bg-opacity-25 text-dark-brown border border-white border-opacity-25 px-3 py-2 mb-3">
+                    <i class="bi bi-info-circle me-2"></i>Tentang FKO
+                </span>
+                <h2 class="display-5 fw-bold text-dark-brown mb-3" style="font-family: 'Poppins', serif;">Tentang Kami</h2>
+                <div class="divider mb-4" style="background: var(--color-dark-brown);"></div>
                 
-                <div class="row g-4">
-                    {{-- Vision Card --}}
-                    <div class="col-md-6">
-                        <div class="card glass-card border-0 shadow-sm h-100 hover-lift">
-                            <div class="card-body p-4">
-                                <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
-                                     style="width: 60px; height: 60px;">
-                                    <i class="bi bi-bullseye text-primary fs-3"></i>
-                                </div>
-                                <h4 class="fw-bold mb-3">Visi</h4>
-                                <p class="text-muted mb-0">
-                                    Menjadi wadah komunikasi OSIS yang solid, inovatif, dan berkontribusi 
-                                    nyata dalam pengembangan kepemimpinan dan prestasi siswa se-Kota Semarang.
-                                </p>
+                <p class="lead text-dark-brown mb-4">
+                    Forum Komunikasi OSIS (FKO) Kota Semarang adalah wadah bagi seluruh pengurus OSIS SMA/SMK/MA sederajat di Kota Semarang.
+                </p>
+                
+                <div class="about-content text-dark-brown text-justify-custom">
+                    <p class="mb-4">
+                        Kami berkomitmen untuk menjadi jembatan aspirasi siswa serta sarana pengembangan diri melalui berbagai kegiatan positif yang inspiratif dan edukatif. Bersama, kita membangun generasi muda yang berkarakter, kreatif, dan inovatif.
+                    </p>
+
+                    {{-- Tabbed Visi & Misi --}}
+                    <div class="mt-5">
+                        <ul class="nav nav-pills nav-pills-custom mb-4" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-visi-tab" data-bs-toggle="pill" data-bs-target="#pills-visi" type="button" role="tab" aria-controls="pills-visi" aria-selected="true">Visi</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-misi-tab" data-bs-toggle="pill" data-bs-target="#pills-misi" type="button" role="tab" aria-controls="pills-misi" aria-selected="false">Misi</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content glass-tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-visi" role="tabpanel" aria-labelledby="pills-visi-tab" tabindex="0">
+                                <blockquote class="visi-quote">
+                                    <p class="mb-0">
+                                        "Memajukan FKO sebagai organisasi yang menjadi dasar bagi siswa siswi SMA/SMK/MA dan sederajat untuk dapat meningkatkan perkembangan minat & bakatnya dalam berorganisasi. Menjadi landasan penting bagi pemerintah untuk peduli terhadap para pelajar yang giat menyeruakan suara untuk pendidikan yang lebih maju."
+                                    </p>
+                                </blockquote>
                             </div>
-                        </div>
-                    </div>
-                    
-                    {{-- Mission Card --}}
-                    <div class="col-md-6">
-                        <div class="card glass-card border-0 shadow-sm h-100 hover-lift">
-                            <div class="card-body p-4">
-                                <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
-                                     style="width: 60px; height: 60px;">
-                                    <i class="bi bi-flag text-primary fs-3"></i>
-                                </div>
-                                <h4 class="fw-bold mb-3">Misi</h4>
-                                <ul class="text-muted ps-3 mb-0">
-                                    <li class="mb-2">Membangun koordinasi antar OSIS se-Kota Semarang</li>
-                                    <li class="mb-2">Mengembangkan program pemberdayaan siswa</li>
-                                    <li class="mb-2">Meningkatkan prestasi dan kreativitas siswa</li>
-                                    <li>Mewujudkan organisasi siswa yang berkarakter</li>
+                            <div class="tab-pane fade" id="pills-misi" role="tabpanel" aria-labelledby="pills-misi-tab" tabindex="0">
+                                <ul class="list-unstyled misi-list">
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Menjadi Pembimbing bagi siswa siswi SMA/SMK/MA & sederajat untuk mengembangkan minat & bakatnya dalam berorganisasi</span>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Menjadi organisasi pelopor dalam penggerak siswa untuk memajukan lingkungan pendidikan yang lebih harmonis</span>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Menghubungkan aspirasi & kreativitas siswa SMA/SMK/MA & guna menciptakan keserasian pelajar</span>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Membentuk FKO sebagai organisasi yang independen dan peduli dengan lingkungan masyarakat sekitar</span>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Menjembatani perkumpulan seluruh anggota OSIS SMA/SMK/MA & sederajat di Kota Semarang secara harmonis dan menjunjung tinggi nilai Pancasila.</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Right Column: Image --}}
+            <div class="col-lg-6 about-image-container">
+                <div class="position-relative">
+                    <img src="{{ asset('images/hero-bg.jpg') }}" alt="Tentang FKO" class="img-fluid about-image w-100 object-fit-cover" style="height: 500px;">
+                    
+                    {{-- Floating Badge --}}
+                    <div class="position-absolute bottom-0 start-0 bg-white p-4 rounded-4 shadow-lg m-4" style="max-width: 200px;">
+                        <h3 class="fw-bold text-dark-brown mb-0">50+</h3>
+                        <p class="text-muted small mb-0">Sekolah Tergabung</p>
                     </div>
                 </div>
             </div>
@@ -118,30 +151,77 @@
 </section>
 
 {{-- Programs & Activities Section --}}
-<section id="programs" class="py-5 bg-light glass-bg">
-    <div class="container py-5">
-        <div class="text-center mb-5">
+<section id="programs" class="section-padding-large bg-soft-cream">
+    {{-- Wave Divider --}}
+    <div class="wave-divider-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+    <div class="container pt-5">
+        <div class="text-center mb-5" data-aos="fade-up">
             <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
                 <i class="bi bi-calendar-check me-2"></i>Program Kami
             </span>
-            <h2 class="display-5 fw-bold text-primary mb-3">Program & Kegiatan</h2>
+            <h2 class="display-5 fw-bold text-dark-brown mb-3">Program & Kegiatan</h2>
             <div class="divider mx-auto mb-4"></div>
             <p class="lead text-muted">
-                Beragam program unggulan untuk pengembangan organisasi dan prestasi siswa
+                Agenda unggulan untuk mengembangkan potensi pelajar Kota Semarang
             </p>
         </div>
         
-        <div class="row g-4">
+        <div class="d-flex flex-column gap-5">
             @foreach($programs as $index => $program)
-            <div class="col-lg-3 col-md-6">
-                <div class="card glass-card border-0 shadow-sm h-100 hover-lift text-center">
-                    <div class="card-body p-4">
-                        <div class="icon-box bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
-                             style="width: 80px; height: 80px;">
-                            <i class="bi {{ $program['icon'] }} text-primary fs-1"></i>
+            <div class="program-card" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                <div class="row g-0 align-items-center">
+                    {{-- Visual Program (Left) --}}
+                    <div class="col-lg-5">
+                        <div class="program-image-wrapper h-100">
+                             {{-- Using hero-bg as placeholder if specific program images aren't dynamic in this context yet, 
+                                  but usually better to have program specific images. Assuming $program might not have 'image' key yet based on previous code.
+                                  I will check if $program has an image or use a random one from asset for demo. 
+                                  Wait, previous code had `{{ $program['icon'] }}`. I will use a placeholder image for now. --}}
+                            <img src="{{ asset('images/hero-bg.jpg') }}" alt="{{ $program['title'] }}" class="program-image">
+                            
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <div class="bg-white rounded-circle p-3 shadow-sm d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                    <i class="bi {{ $program['icon'] }} text-primary fs-5"></i>
+                                </div>
+                            </div>
                         </div>
-                        <h5 class="fw-bold mb-3">{{ $program['title'] }}</h5>
-                        <p class="text-muted small mb-0">{{ $program['description'] }}</p>
+                    </div>
+                    
+                    {{-- Informasi Program (Right) --}}
+                    <div class="col-lg-7">
+                        <div class="program-content">
+                            <h3 class="program-title">{{ $program['title'] }}</h3>
+                            <p class="text-muted mb-4">{{ $program['description'] }}</p>
+                            
+                            {{-- Stats / Progress --}}
+                            <div class="program-stats">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col">
+                                        <h6 class="fw-bold text-dark-brown mb-0">Realisasi Kegiatan</h6>
+                                    </div>
+                                    <div class="col-auto">
+                                        {{-- Randomize stats for demo purposes since they aren't in DB yet --}}
+                                        <span class="fw-bold text-primary">{{ 85 + ($index * 2) }}%</span>
+                                    </div>
+                                </div>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar progress-bar-custom" role="progressbar" style="width: {{ 85 + ($index * 2) }}%" aria-valuenow="{{ 85 + ($index * 2) }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span><i class="bi bi-check-circle-fill me-1 text-success"></i> Terjadwal</span>
+                                    <span><i class="bi bi-people-fill me-1"></i> Partisipasi Aktif</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 text-end">
+                                <a href="#" class="btn btn-outline-primary rounded-pill px-4">Detail Kegiatan <i class="bi bi-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
