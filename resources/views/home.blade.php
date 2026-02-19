@@ -137,7 +137,7 @@
             {{-- Right Column: Image --}}
             <div class="col-lg-6 about-image-container">
                 <div class="position-relative">
-                    <img src="{{ asset('images/hero-bg.jpg') }}" alt="Tentang FKO" class="img-fluid about-image w-100 object-fit-cover" style="height: 500px;">
+                    <img src="{{ asset('images/about/about-fko.jpg') }}" onerror="this.src='{{ asset('images/hero-bg.jpg') }}'" alt="Tentang FKO" class="img-fluid about-image w-100 object-fit-cover" style="height: 500px;">
                     
                     {{-- Floating Badge --}}
                     <div class="position-absolute bottom-0 start-0 bg-white p-4 rounded-4 shadow-lg m-4" style="max-width: 200px;">
@@ -160,6 +160,7 @@
     </div>
 
     <div class="container pt-5">
+        {{-- Section Header --}}
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
                 <i class="bi bi-calendar-check me-2"></i>Program Kami
@@ -169,57 +170,40 @@
             <p class="lead text-muted">
                 Agenda unggulan untuk mengembangkan potensi pelajar Kota Semarang
             </p>
+            <div class="d-inline-flex align-items-center gap-2 mt-2">
+                <span class="badge bg-dark-brown rounded-pill px-3 py-2">
+                    <i class="bi bi-grid-3x3-gap me-1"></i>{{ count($programs) }} Program Kerja
+                </span>
+            </div>
         </div>
-        
-        <div class="d-flex flex-column gap-5">
+
+        {{-- All Programs - Unified Featured Cards --}}
+        <div class="row g-4">
             @foreach($programs as $index => $program)
-            <div class="program-card" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                <div class="row g-0 align-items-center">
-                    {{-- Visual Program (Left) --}}
-                    <div class="col-lg-5">
-                        <div class="program-image-wrapper h-100">
-                             {{-- Using hero-bg as placeholder if specific program images aren't dynamic in this context yet, 
-                                  but usually better to have program specific images. Assuming $program might not have 'image' key yet based on previous code.
-                                  I will check if $program has an image or use a random one from asset for demo. 
-                                  Wait, previous code had `{{ $program['icon'] }}`. I will use a placeholder image for now. --}}
-                            <img src="{{ asset('images/hero-bg.jpg') }}" alt="{{ $program['title'] }}" class="program-image">
-                            
-                            <div class="position-absolute top-0 start-0 m-3">
-                                <div class="bg-white rounded-circle p-3 shadow-sm d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                                    <i class="bi {{ $program['icon'] }} text-primary fs-5"></i>
-                                </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ $index * 50 }}">
+                <div class="program-card-featured h-100">
+                    <div class="row g-0 h-100">
+                        {{-- Image --}}
+                        <div class="col-5">
+                            <div class="program-featured-image-wrapper h-100">
+                                <img src="{{ asset($program['image'] ?? 'images/hero-bg.jpg') }}" 
+                                     onerror="this.src='{{ asset('images/hero-bg.jpg') }}'" 
+                                     alt="{{ $program['title'] }}" 
+                                     class="program-featured-image">
+                                <div class="program-number-badge">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    {{-- Informasi Program (Right) --}}
-                    <div class="col-lg-7">
-                        <div class="program-content">
-                            <h3 class="program-title">{{ $program['title'] }}</h3>
-                            <p class="text-muted mb-4">{{ $program['description'] }}</p>
-                            
-                            {{-- Stats / Progress --}}
-                            <div class="program-stats">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col">
-                                        <h6 class="fw-bold text-dark-brown mb-0">Realisasi Kegiatan</h6>
-                                    </div>
-                                    <div class="col-auto">
-                                        {{-- Randomize stats for demo purposes since they aren't in DB yet --}}
-                                        <span class="fw-bold text-primary">{{ 85 + ($index * 2) }}%</span>
-                                    </div>
-                                </div>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar progress-bar-custom" role="progressbar" style="width: {{ 85 + ($index * 2) }}%" aria-valuenow="{{ 85 + ($index * 2) }}" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="d-flex justify-content-between small text-muted">
-                                    <span><i class="bi bi-check-circle-fill me-1 text-success"></i> Terjadwal</span>
-                                    <span><i class="bi bi-people-fill me-1"></i> Partisipasi Aktif</span>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4 text-end">
-                                <a href="#" class="btn btn-outline-primary rounded-pill px-4">Detail Kegiatan <i class="bi bi-arrow-right ms-2"></i></a>
+                        {{-- Content --}}
+                        <div class="col-7">
+                            <div class="program-featured-content d-flex flex-column h-100">
+                                <span class="badge bg-primary bg-opacity-15 text-primary align-self-start mb-2">
+                                    <i class="bi {{ $program['icon'] }} me-1"></i>{{ $program['category'] }}
+                                </span>
+                                <h4 class="program-featured-title">{{ $program['title'] }}</h4>
+                                @if($program['title'] !== $program['short'])
+                                    <p class="text-muted small mb-2 fst-italic">{{ $program['short'] }}</p>
+                                @endif
+                                <p class="text-muted small mb-0 flex-grow-1">{{ Str::limit($program['description'], 120) }}</p>
                             </div>
                         </div>
                     </div>

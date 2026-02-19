@@ -19,28 +19,88 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Sample programs data - In production, this would come from a database
+        // Program Kerja & Kegiatan FKO Kota Semarang
         $programs = [
             [
-                'title' => 'Rapat Koordinasi Bulanan',
-                'description' => 'Pertemuan rutin koordinasi antar pengurus OSIS se-Kota Semarang untuk membahas program kerja dan evaluasi kegiatan.',
-                'icon' => 'bi-calendar-event'
+                'title' => 'First Gathering',
+                'short' => 'First Gathering',
+                'description' => 'Acara perkenalan dan silaturahmi awal seluruh anggota OSIS SMA/SMK/MA se-Kota Semarang untuk membangun kebersamaan dan jaringan antar sekolah.',
+                'icon' => 'bi-people-fill',
+                'image' => 'images/programs/first-gathering.jpg',
+                'category' => 'Networking'
             ],
             [
-                'title' => 'Pelatihan Leadership',
-                'description' => 'Program pengembangan kepemimpinan bagi pengurus OSIS untuk meningkatkan kompetensi organisasi.',
-                'icon' => 'bi-people'
+                'title' => 'Musyawarah Besar',
+                'short' => 'Mubes',
+                'description' => 'Forum musyawarah tertinggi FKO untuk menetapkan program kerja, anggaran, dan kepengurusan baru organisasi.',
+                'icon' => 'bi-megaphone-fill',
+                'image' => 'images/programs/musyawarah-besar.jpg',
+                'category' => 'Organisasi'
             ],
             [
-                'title' => 'Bakti Sosial',
-                'description' => 'Kegiatan sosial kemasyarakatan sebagai wujud kepedulian siswa terhadap lingkungan sekitar.',
-                'icon' => 'bi-heart'
+                'title' => 'BATAKO',
+                'short' => 'Bagi-Bagi Takjil Bareng FKO',
+                'description' => 'Kegiatan sosial berbagi takjil di bulan Ramadhan sebagai wujud kepedulian dan kebersamaan pelajar Kota Semarang.',
+                'icon' => 'bi-heart-fill',
+                'image' => 'images/programs/batako.jpg',
+                'category' => 'Sosial'
             ],
             [
-                'title' => 'Kompetisi Antar Sekolah',
-                'description' => 'Penyelenggaraan berbagai lomba untuk meningkatkan prestasi dan kreativitas siswa se-Kota Semarang.',
-                'icon' => 'bi-trophy'
-            ]
+                'title' => 'WASBANG',
+                'short' => 'Wawasan Kebangsaan',
+                'description' => 'Program edukasi wawasan kebangsaan untuk memperkuat nilai-nilai nasionalisme dan cinta tanah air di kalangan pelajar.',
+                'icon' => 'bi-flag-fill',
+                'image' => 'images/programs/wasbang.jpg',
+                'category' => 'Edukasi'
+            ],
+            [
+                'title' => 'FUWIKO',
+                'short' => 'Fun With FKO',
+                'description' => 'Kegiatan rekreasi dan games seru bersama seluruh anggota FKO untuk mempererat tali persaudaraan antar sekolah.',
+                'icon' => 'bi-emoji-laughing-fill',
+                'image' => 'images/programs/fuwiko.jpg',
+                'category' => 'Hiburan'
+            ],
+            [
+                'title' => 'FENTOS',
+                'short' => 'FKO Advance with Youth Conventions',
+                'description' => 'Konvensi pemuda tingkat kota yang membahas isu-isu strategis kepemudaan dan pendidikan masa depan.',
+                'icon' => 'bi-mic-fill',
+                'image' => 'images/programs/fentos.jpg',
+                'category' => 'Konvensi'
+            ],
+            [
+                'title' => 'FPMKS',
+                'short' => 'Forum Pemimpin Muda Kota Semarang',
+                'description' => 'Forum diskusi dan pelatihan kepemimpinan bagi para pemimpin muda OSIS se-Kota Semarang.',
+                'icon' => 'bi-star-fill',
+                'image' => 'images/programs/fpmks.jpg',
+                'category' => 'Leadership'
+            ],
+            [
+                'title' => 'GELORA CUP',
+                'short' => 'Gelora Cup',
+                'description' => 'Kompetisi olahraga dan seni antar sekolah se-Kota Semarang untuk menyalurkan bakat dan meningkatkan sportivitas.',
+                'icon' => 'bi-trophy-fill',
+                'image' => 'images/programs/gelora-cup.jpg',
+                'category' => 'Kompetisi'
+            ],
+            [
+                'title' => 'GELORA MUDA',
+                'short' => 'Gelora Muda',
+                'description' => 'Program pengembangan kreativitas dan inovasi generasi muda melalui berbagai kegiatan inspiratif.',
+                'icon' => 'bi-lightning-fill',
+                'image' => 'images/programs/gelora-muda.jpg',
+                'category' => 'Kreativitas'
+            ],
+            [
+                'title' => 'SLP',
+                'short' => 'Semarang Leadership Project',
+                'description' => 'Program unggulan pelatihan kepemimpinan intensif yang mencetak kader pemimpin masa depan Kota Semarang.',
+                'icon' => 'bi-rocket-takeoff-fill',
+                'image' => 'images/programs/slp.jpg',
+                'category' => 'Leadership'
+            ],
         ];
 
         // Sample news/articles data - In production, this would come from a database
