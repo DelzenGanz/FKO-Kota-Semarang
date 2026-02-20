@@ -26,7 +26,7 @@ class HomeController extends Controller
                 'short' => 'First Gathering',
                 'description' => 'Acara perkenalan dan silaturahmi awal seluruh anggota OSIS SMA/SMK/MA se-Kota Semarang untuk membangun kebersamaan dan jaringan antar sekolah.',
                 'icon' => 'bi-people-fill',
-                'image' => 'images/programs/first-gathering.jpg',
+                'image' => 'images/programs/firstgathering.jpg',
                 'category' => 'Networking'
             ],
             [
@@ -34,7 +34,7 @@ class HomeController extends Controller
                 'short' => 'Mubes',
                 'description' => 'Forum musyawarah tertinggi FKO untuk menetapkan program kerja, anggaran, dan kepengurusan baru organisasi.',
                 'icon' => 'bi-megaphone-fill',
-                'image' => 'images/programs/musyawarah-besar.jpg',
+                'image' => 'images/programs/mubes2.jpg',
                 'category' => 'Organisasi'
             ],
             [
@@ -90,7 +90,7 @@ class HomeController extends Controller
                 'short' => 'Gelora Muda',
                 'description' => 'Program pengembangan kreativitas dan inovasi generasi muda melalui berbagai kegiatan inspiratif.',
                 'icon' => 'bi-lightning-fill',
-                'image' => 'images/programs/gelora-muda.jpg',
+                'image' => 'images/programs/geloramuda3.jpg',
                 'category' => 'Kreativitas'
             ],
             [
