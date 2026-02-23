@@ -103,10 +103,24 @@ class HomeController extends Controller
             ],
         ];
 
+        // Divisi / Struktur Organisasi FKO Kota Semarang
+        $divisions = [
+            ['name' => 'Badan Pengurus Harian', 'short' => 'BPH', 'description' => 'Inti kepemimpinan organisasi yang bertanggung jawab atas seluruh kebijakan dan arah strategis.', 'tag' => 'Pengurus', 'icon' => 'bi-shield-fill-check'],
+            ['name' => 'Divisi Keagamaan', 'short' => 'DIV 1', 'description' => 'Membina kehidupan spiritual anggota dan menyelenggarakan kegiatan keagamaan organisasi.', 'tag' => 'Keagamaan', 'icon' => 'bi-moon-stars-fill'],
+            ['name' => 'Divisi Bela Negara', 'short' => 'DIV 2', 'description' => 'Menumbuhkan semangat nasionalisme, kedisiplinan, dan cinta tanah air di kalangan anggota.', 'tag' => 'Bela Negara', 'icon' => 'bi-flag-fill'],
+            ['name' => 'Divisi Keolahragaan', 'short' => 'DIV 3', 'description' => 'Mengembangkan potensi olahraga anggota dan mengelola kegiatan kompetisi serta kebugaran.', 'tag' => 'Olahraga', 'icon' => 'bi-dribbble'],
+            ['name' => 'Divisi Kesehatan', 'short' => 'DIV 4', 'description' => 'Meningkatkan kesadaran kesehatan anggota melalui edukasi dan program layanan kesehatan.', 'tag' => 'Kesehatan', 'icon' => 'bi-heart-pulse-fill'],
+            ['name' => 'Divisi Keorganisasian', 'short' => 'DIV 5', 'description' => 'Mengelola administrasi, keanggotaan, dan pengembangan kapasitas internal organisasi.', 'tag' => 'Organisasi', 'icon' => 'bi-diagram-3-fill'],
+            ['name' => 'Divisi Kewirausahaan', 'short' => 'DIV 6', 'description' => 'Mendorong jiwa wirausaha anggota melalui pelatihan, inkubasi ide, dan program bisnis.', 'tag' => 'Wirausaha', 'icon' => 'bi-shop'],
+            ['name' => 'Divisi Sosial Budaya', 'short' => 'DIV 7', 'description' => 'Melestarikan budaya lokal dan menjalankan program pengabdian sosial kepada masyarakat.', 'tag' => 'Sosial Budaya', 'icon' => 'bi-globe-asia-australia'],
+            ['name' => 'Divisi TIK', 'short' => 'DIV 8', 'description' => 'Mengelola infrastruktur digital, teknologi informasi, dan komunikasi organisasi.', 'tag' => 'Teknologi', 'icon' => 'bi-cpu-fill'],
+            ['name' => 'Divisi Humas', 'short' => 'DIV 9', 'description' => 'Membangun relasi publik, mengelola media sosial, dan menjaga citra organisasi.', 'tag' => 'Humas', 'icon' => 'bi-broadcast-pin'],
+        ];
+
         // Sample news/articles data - In production, this would come from a database
         $news = [
             [
-                'title' => 'Pelantikan Pengurus FKO Periode 2026',
+                'title' => 'Semarang Leadership Project 2026',
                 'excerpt' => 'Acara pelantikan pengurus Forum Komunikasi OSIS Kota Semarang periode 2026 telah dilaksanakan dengan khidmat di Gedung Serbaguna...',
                 'date' => '2026-02-01',
                 'image' => null // Ganti dengan: asset('images/news/news1.jpg')
@@ -132,6 +146,6 @@ class HomeController extends Controller
         ];
 
         // Pass data to the view
-        return view('home', compact('programs', 'news'));
+        return view('home', compact('programs', 'news', 'divisions'));
     }
 }

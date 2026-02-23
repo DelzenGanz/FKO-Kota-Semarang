@@ -150,6 +150,67 @@
     </div>
 </section>
 
+{{-- Divisions Wheel Carousel Section --}}
+<section id="divisions" class="section-padding-large position-relative overflow-hidden" style="background: linear-gradient(180deg, var(--color-soft-cream) 0%, #fff 100%);">
+    <div class="container position-relative" style="z-index: 1;">
+        {{-- Section Header --}}
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">
+                <i class="bi bi-diagram-3 me-2"></i>Struktur Organisasi
+            </span>
+            <h2 class="display-5 fw-bold text-dark-brown mb-3">Divisi Kami</h2>
+            <div class="divider mx-auto mb-4"></div>
+            <p class="lead text-muted">Kenali setiap divisi yang menggerakkan FKO Kota Semarang</p>
+        </div>
+
+        {{-- Wheel Carousel --}}
+        <div class="division-carousel-wrapper d-flex justify-content-center align-items-center position-relative mx-auto" data-aos="zoom-in" data-aos-delay="100">
+
+            {{-- Left Arrow --}}
+            <button class="division-arrow division-arrow-left btn rounded-circle shadow-sm d-flex align-items-center justify-content-center" id="divPrev" aria-label="Previous division">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            {{-- Wheel Ring --}}
+            <div class="division-wheel-container position-relative d-flex align-items-center justify-content-center">
+                <div class="division-ring" id="divisionRing">
+                    @foreach($divisions as $i => $div)
+                    <div class="division-dot {{ $i === 0 ? 'active' : '' }}"
+                         data-index="{{ $i }}"
+                         style="--dot-angle: {{ $i * 36 }}deg;"
+                         title="{{ $div['short'] }}">
+                        <i class="bi {{ $div['icon'] }}"></i>
+                    </div>
+                    @endforeach
+                </div>
+
+                {{-- Center Content Card --}}
+                <div class="division-center-card text-center" id="divisionCard">
+                    <div class="division-card-inner">
+                        <div class="division-icon-display mb-3">
+                            <i class="bi {{ $divisions[0]['icon'] }}" id="divIcon"></i>
+                        </div>
+                        <span class="badge bg-primary bg-opacity-15 text-primary px-3 py-2 mb-3 d-inline-block" id="divTag">{{ $divisions[0]['tag'] }}</span>
+                        <h3 class="fw-bold text-dark-brown mb-1" id="divName">{{ $divisions[0]['name'] }}</h3>
+                        <p class="text-muted small mb-2 fw-semibold" id="divShort">{{ $divisions[0]['short'] }}</p>
+                        <p class="text-muted small mb-0 mx-auto" style="max-width: 280px;" id="divDesc">{{ $divisions[0]['description'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Right Arrow --}}
+            <button class="division-arrow division-arrow-right btn rounded-circle shadow-sm d-flex align-items-center justify-content-center" id="divNext" aria-label="Next division">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+
+        {{-- Counter --}}
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="200">
+            <span class="text-muted small"><span id="divCurrent" class="fw-bold text-dark-brown">1</span> / {{ count($divisions) }}</span>
+        </div>
+    </div>
+</section>
+
 {{-- Programs & Activities Section --}}
 <section id="programs" class="section-padding-large bg-soft-cream">
     {{-- Wave Divider --}}
@@ -384,4 +445,88 @@
     </div>
 </section>
 
+@endsection
+
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const divisions = @json($divisions);
+    const total = divisions.length;
+    let current = 0;
+    let isAnimating = false;
+
+    const ring = document.getElementById('divisionRing');
+    const card = document.getElementById('divisionCard');
+    const dots = document.querySelectorAll('.division-dot');
+    const prevBtn = document.getElementById('divPrev');
+    const nextBtn = document.getElementById('divNext');
+    const counterEl = document.getElementById('divCurrent');
+
+    // Content elements
+    const divIcon = document.getElementById('divIcon');
+    const divTag = document.getElementById('divTag');
+    const divName = document.getElementById('divName');
+    const divShort = document.getElementById('divShort');
+    const divDesc = document.getElementById('divDesc');
+
+    function goTo(index) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        // Normalize index for infinite loop
+        current = ((index % total) + total) % total;
+
+        // Rotate ring
+        const angle = current * -36;
+        ring.style.transform = 'rotate(' + angle + 'deg)';
+
+        // Counter-rotate dots so icons stay upright
+        dots.forEach(function(dot, i) {
+            dot.querySelector('i').style.transform = 'rotate(' + (-angle) + 'deg)';
+        });
+
+        // Fade out card content
+        card.classList.add('division-card-animating');
+
+        setTimeout(function() {
+            // Update content
+            const div = divisions[current];
+            divIcon.className = 'bi ' + div.icon;
+            divTag.textContent = div.tag;
+            divName.textContent = div.name;
+            divShort.textContent = div.short;
+            divDesc.textContent = div.description;
+            counterEl.textContent = current + 1;
+
+            // Update active dot
+            dots.forEach(function(d) { d.classList.remove('active'); });
+            dots[current].classList.add('active');
+
+            // Fade in
+            card.classList.remove('division-card-animating');
+            isAnimating = false;
+        }, 300);
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    // Dot click navigation
+    dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+            goTo(parseInt(this.dataset.index));
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        const section = document.getElementById('divisions');
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            if (e.key === 'ArrowLeft') goTo(current - 1);
+            if (e.key === 'ArrowRight') goTo(current + 1);
+        }
+    });
+});
+</script>
 @endsection

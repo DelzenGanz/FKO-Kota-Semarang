@@ -66,6 +66,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#divisions">
+                            <i class="bi bi-diagram-3 me-1"></i>
+                            <span>Divisi</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#programs">
                             <i class="bi bi-calendar-event me-1"></i>
                             <span>Program</span>
