@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,6 @@ use App\Http\Controllers\HomeController;
 
 // Home page route - displays landing page with all sections
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// News detail page
+Route::get('/berita/{slug}', [NewsController::class, 'show'])->name('news.show');

@@ -190,7 +190,7 @@
                         <div class="division-icon-display mb-3">
                             <i class="bi {{ $divisions[0]['icon'] }}" id="divIcon"></i>
                         </div>
-                        <span class="badge bg-primary bg-opacity-15 text-primary px-3 py-2 mb-3 d-inline-block" id="divTag">{{ $divisions[0]['tag'] }}</span>
+                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3 d-inline-block" id="divTag">{{ $divisions[0]['tag'] }}</span>
                         <h3 class="fw-bold text-dark-brown mb-1" id="divName">{{ $divisions[0]['name'] }}</h3>
                         <p class="text-muted small mb-2 fw-semibold" id="divShort">{{ $divisions[0]['short'] }}</p>
                         <p class="text-muted small mb-0 mx-auto" style="max-width: 280px;" id="divDesc">{{ $divisions[0]['description'] }}</p>
@@ -257,7 +257,7 @@
                         {{-- Content --}}
                         <div class="col-7">
                             <div class="program-featured-content d-flex flex-column h-100">
-                                <span class="badge bg-primary bg-opacity-15 text-primary align-self-start mb-2">
+                                <span class="badge bg-primary bg-opacity-10 text-primary align-self-start mb-2">
                                     <i class="bi {{ $program['icon'] }} me-1"></i>{{ $program['category'] }}
                                 </span>
                                 <h4 class="program-featured-title">{{ $program['title'] }}</h4>
@@ -295,15 +295,15 @@
                 <div class="card glass-card border-0 shadow-sm h-100 hover-lift overflow-hidden">
                     <div class="row g-0">
                         <div class="col-md-5">
-                            <div class="news-image-wrapper h-100 bg-beige d-flex align-items-center justify-content-center">
+                            <a href="{{ route('news.show', $article['slug']) }}" class="news-image-wrapper text-decoration-none h-100 bg-beige d-flex flex-column align-items-center justify-content-center" style="min-height: 250px;">
                                 @if($article['image'])
                                     <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}" 
                                          class="img-fluid w-100 h-100 object-fit-cover">
                                 @else
                                     {{-- Fallback icon when no image --}}
-                                    <i class="bi bi-newspaper text-primary" style="font-size: 4rem; opacity: 0.3;"></i>
+                                    <i class="bi bi-newspaper text-primary mb-2" style="font-size: 3.5rem; opacity: 0.3;"></i>
                                 @endif
-                            </div>
+                            </a>
                         </div>
                         <div class="col-md-7">
                             <div class="card-body p-4 d-flex flex-column h-100">
@@ -313,9 +313,13 @@
                                         {{ \Carbon\Carbon::parse($article['date'])->locale('id')->isoFormat('D MMMM YYYY') }}
                                     </span>
                                 </div>
-                                <h5 class="fw-bold mb-3">{{ $article['title'] }}</h5>
+                                <h5 class="fw-bold mb-3">
+                                    <a href="{{ route('news.show', $article['slug']) }}" class="text-dark-brown text-decoration-none text-hover-primary transition-all">
+                                        {{ $article['title'] }}
+                                    </a>
+                                </h5>
                                 <p class="text-muted small mb-3 flex-grow-1">{{ $article['excerpt'] }}</p>
-                                <a href="#" class="btn btn-sm btn-outline-primary mt-auto align-self-start">
+                                <a href="{{ route('news.show', $article['slug']) }}" class="btn btn-sm btn-outline-primary mt-auto align-self-start">
                                     Baca Selengkapnya
                                     <i class="bi bi-arrow-right ms-1"></i>
                                 </a>

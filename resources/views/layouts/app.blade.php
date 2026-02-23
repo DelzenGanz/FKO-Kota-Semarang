@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     {{-- Custom CSS for color scheme --}}
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}?v={{ time() }}">
     
     {{-- Additional page-specific styles --}}
     @yield('styles')
@@ -54,37 +54,37 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">
+                        <a class="nav-link" href="{{ url('/') }}#hero">
                             <i class="bi bi-house-door me-1"></i>
                             <span>Beranda</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">
+                        <a class="nav-link" href="{{ url('/') }}#about">
                             <i class="bi bi-info-circle me-1"></i>
                             <span>Tentang</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#divisions">
+                        <a class="nav-link" href="{{ url('/') }}#divisions">
                             <i class="bi bi-diagram-3 me-1"></i>
                             <span>Divisi</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#programs">
+                        <a class="nav-link" href="{{ url('/') }}#programs">
                             <i class="bi bi-calendar-event me-1"></i>
                             <span>Program</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">
+                        <a class="nav-link" href="{{ url('/') }}#news">
                             <i class="bi bi-newspaper me-1"></i>
                             <span>Berita</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-cta" href="#contact">
+                        <a class="nav-link nav-link-cta" href="{{ url('/') }}#contact">
                             <i class="bi bi-envelope me-1"></i>
                             <span>Kontak</span>
                         </a>

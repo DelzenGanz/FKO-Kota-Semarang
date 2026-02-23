@@ -39,13 +39,6 @@ body {
 /* ============================================
    Bootstrap Primary Color Overrides
    ============================================ */
-.bg-primary {
-    background-color: var(--color-primary) !important;
-}
-
-.text-primary {
-    color: var(--color-primary) !important;
-}
 
 .btn-primary {
     background-color: var(--color-primary);
@@ -769,11 +762,6 @@ button,
 /* ============================================
    Badge Styles
    ============================================ */
-.badge.bg-primary {
-    background-color: var(--color-primary) !important;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-}
 
 /* ============================================
    High Contrast & Accessibility
@@ -934,7 +922,7 @@ a:focus {
 
 /* Active dot glow */
 .division-dot.active {
-    background: linear-gradient(135deg, var(--color-primary-brown), var(--color-warm-brown));
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     border-color: var(--color-primary);
     box-shadow: 0 0 0 6px rgba(138, 98, 64, 0.15), 0 4px 20px rgba(138, 98, 64, 0.3);
 }
@@ -960,7 +948,7 @@ a:focus {
     width: 64px;
     height: 64px;
     border-radius: 18px;
-    background: linear-gradient(135deg, var(--color-primary-brown), var(--color-warm-brown));
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1368,4 +1356,80 @@ a:focus {
     margin-right: 1rem;
     font-size: 1.25rem;
     filter: drop-shadow(0 2px 4px rgba(164, 113, 73, 0.2));
+}
+
+/* ============================================
+   News Detail Page
+   ============================================ */
+.news-detail-hero {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.news-detail-hero .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.news-detail-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(82, 63, 43, 0.6) 0%, rgba(82, 63, 43, 0.9) 100%);
+}
+
+.news-detail-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 100px 0 60px;
+}
+
+.news-detail-hero .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Article content typography */
+.news-article-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.news-article-content h4 {
+    color: var(--color-dark-brown);
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.news-article-content p {
+    margin-bottom: 1.2rem;
+}
+
+.news-article-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.news-article-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.news-article-content .lead {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #555;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.text-hover-primary:hover {
+    color: var(--color-primary) !important;
 }

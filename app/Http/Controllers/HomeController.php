@@ -117,33 +117,8 @@ class HomeController extends Controller
             ['name' => 'Divisi Humas', 'short' => 'DIV 9', 'description' => 'Membangun relasi publik, mengelola media sosial, dan menjaga citra organisasi.', 'tag' => 'Humas', 'icon' => 'bi-broadcast-pin'],
         ];
 
-        // Sample news/articles data - In production, this would come from a database
-        $news = [
-            [
-                'title' => 'Semarang Leadership Project 2026',
-                'excerpt' => 'Acara pelantikan pengurus Forum Komunikasi OSIS Kota Semarang periode 2026 telah dilaksanakan dengan khidmat di Gedung Serbaguna...',
-                'date' => '2026-02-01',
-                'image' => null // Ganti dengan: asset('images/news/news1.jpg')
-            ],
-            [
-                'title' => 'Workshop Manajemen Organisasi',
-                'excerpt' => 'FKO mengadakan workshop manajemen organisasi yang dihadiri oleh seluruh pengurus OSIS dari 50 sekolah di Kota Semarang...',
-                'date' => '2026-01-28',
-                'image' => null // Ganti dengan: asset('images/news/news2.jpg')
-            ],
-            [
-                'title' => 'Baksos Peduli Banjir Semarang',
-                'excerpt' => 'Sebagai bentuk kepedulian terhadap korban banjir, FKO menggalang donasi dan menyalurkan bantuan kepada warga terdampak...',
-                'date' => '2026-01-25',
-                'image' => null // Ganti dengan: asset('images/news/news3.jpg')
-            ],
-            [
-                'title' => 'Juara Umum Lomba Kreatif Pelajar',
-                'excerpt' => 'Prestasi membanggakan diraih oleh perwakilan FKO dalam ajang Lomba Kreatif Pelajar tingkat Jawa Tengah...',
-                'date' => '2026-01-20',
-                'image' => null // Ganti dengan: asset('images/news/news4.jpg')
-            ]
-        ];
+        // News articles - centralized in NewsController
+        $news = \App\Http\Controllers\NewsController::getNews();
 
         // Pass data to the view
         return view('home', compact('programs', 'news', 'divisions'));
